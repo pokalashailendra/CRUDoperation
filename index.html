@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>User Registration Form</h2>
+    <form id="registrationForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="password1">Password:</label>
+        <input type="password" id="password1" name="password1" required><br><br>
+        
+        <label for="password2">Confirm Password:</label>
+        <input type="password" id="password2" name="password2" required><br><br>
+        
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var formData = new FormData(this); // Get form data
+
+            // Replace with the Web App URL you provided
+            fetch('https://script.google.com/macros/s/AKfycbysFZ3hXqG0_rhhJLIQcckzy3ilWCF0c9vwl3DgZz2i0KbRhoo0fTtdi3AhYZIwVDJ3/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Display success message
+            })
+            .catch(error => {
+                alert("Error: " + error); // Display error message
+            });
+        });
+    </script>
+</body>
+</html>
